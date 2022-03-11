@@ -2,6 +2,15 @@
 
 Hackernews App
 
+<p float="left">
+  <img src="./src/assets/images/screenshot_ios.png" width="200" />
+  <img src="./src/assets/images/screenshot_ios_comments.png" width="200" /> 
+</p>
+<p float="left">
+  <img src="./src/assets/images/screenshot_android.png" width="200" />
+  <img src="./src/assets/images/screenshot_android_comments.png" width="200" /> 
+</p>
+
 ## Before you start
 
 You need to setup following environment in your system to run react-native project.

@@ -7,6 +7,8 @@ import {
 import HomeScreen from '../screens/home';
 import Comments from '../screens/comments';
 import {NavigationContainer} from '@react-navigation/native';
+import {Colors} from '../config/styles';
+
 
 const Stack = createStackNavigator();
 
@@ -24,6 +26,11 @@ function InitialStack() {
           cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
           headerShown: true,
           title: 'Top Stories',
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: Colors.COLOR_THEME,
+          },
+          headerTintColor: Colors.COLOR_WHITE,
         }}
         name="HomePage"
         component={HomeScreen}
@@ -33,6 +40,7 @@ function InitialStack() {
           cardStyleInterpolator: CardStyleInterpolators.forModalPresentationIOS,
           headerShown: true,
           title: 'Comments',
+          headerTitleAlign: 'center',
         }}
         name="Comments"
         component={Comments}
