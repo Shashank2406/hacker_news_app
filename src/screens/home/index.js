@@ -140,7 +140,9 @@ class Home extends Component {
                   <View style={styles.verticalLine} />
                   <TouchableOpacity
                     onPress={() => {
-                      this.props.navigation.navigate('Comments');
+                      this.props.navigation.navigate('Comments', {
+                        selectedItem: item,
+                      });
                     }}>
                     <Text style={styles.subText}>{`${
                       item?.kids?.length || 0
