@@ -75,6 +75,12 @@ class Home extends Component {
     this.fetchInitialData(true);
   };
 
+  onCommentClick = item => {
+    this.props.navigation.navigate('Comments', {
+      selectedItem: item,
+    });
+  };
+
   render() {
     const {isLoading, data, isRefreshing} = this.state;
     return (
@@ -99,7 +105,7 @@ class Home extends Component {
             ItemSeparatorComponent={() => (
               <View style={styles.separatorHeight} />
             )}
-            renderItem={({item}) => (
+            renderItem={({item, index}) => (
               <View style={styles.item}>
                 <Text style={styles.urlText}>{`${item?.url?.slice(
                   0,
@@ -117,11 +123,8 @@ class Home extends Component {
                   <Text style={styles.subText}>{`${item.score} points`}</Text>
                   <View style={styles.verticalLine} />
                   <TouchableOpacity
-                    onPress={() => {
-                      this.props.navigation.navigate('Comments', {
-                        selectedItem: item,
-                      });
-                    }}>
+                    testID={`list_${index}`}
+                    onPress={() => this.onCommentClick(item)}>
                     <Text style={styles.subText}>{`${
                       item?.kids?.length || 0
                     } comments`}</Text>

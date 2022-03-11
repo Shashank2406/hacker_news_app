@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffff",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "padding": 20,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#000",
+          "fontSize": 10,
+        }
+      }
+    >
+      undefined...
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#000",
+          "fontSize": 14,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      undefined
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "marginTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 12,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        undefined
+      </Text>
+      <View
+        style={
+          Object {
+            "borderLeftColor": "#909090",
+            "borderLeftWidth": 1,
+            "marginHorizontal": 5,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 12,
+          }
+        }
+      >
+        NaN seconds ago
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "marginTop": 15,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 12,
+          }
+        }
+      >
+        undefined points
+      </Text>
+      <View
+        style={
+          Object {
+            "borderLeftColor": "#909090",
+            "borderLeftWidth": 1,
+            "marginHorizontal": 5,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 12,
+          }
+        }
+      >
+        0 comments
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "justifyContent": "center",
+        "marginHorizontal": 20,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#000",
+          "fontSize": 14,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Comments
+    </Text>
+    <View
+      style={
+        Object {
+          "borderTopWidth": 1,
+          "marginVertical": 10,
+        }
+      }
+    />
+    <RCTScrollView
+      ItemSeparatorComponent={[Function]}
+      ListEmptyComponent={[Function]}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      style={
+        Object {
+          "marginBottom": 150,
+        }
+      }
+      viewabilityConfigCallbackPairs={Array []}
+    >
+      <View>
+        <ActivityIndicator
+          color="#000"
+          size="large"
+        />
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
