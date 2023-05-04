@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import RootNavigator from './src/navigator/rootNavigator';
 
-import RootNavigator from './src/navigation/rootNavigator';
+class App extends Component {
+  constructor(props) {
+    super(props);
+    // setI18nConfig(); // set initial config
+  }
 
-class App extends React.Component {
   render() {
-    return <RootNavigator />;
+    return (
+      // <Provider store={store}>
+      <SafeAreaProvider>
+        <RootNavigator />
+      </SafeAreaProvider>
+      // </Provider>
+    );
   }
 }
 
