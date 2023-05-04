@@ -1,21 +1,39 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import LandingScreen from '../components/landingScreen';
 import Login from '../screens/login';
+import Splash from '../screens/splash';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const LoginStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        options={{headerShown: false}}
+        options={{
+          header: () => null,
+          cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
+        }}
+        name="Splash"
+        component={Splash}
+      />
+      <Stack.Screen
+        options={{
+          header: () => null,
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
         name="LandingScreen"
         component={LandingScreen}
       />
       <Stack.Screen
-        options={{headerShown: false}}
+        options={{
+          header: () => null,
+          cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
+        }}
         name="Login"
         component={Login}
       />

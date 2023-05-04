@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import styles from './styles';
 
-class Login extends Component {
+class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -69,4 +69,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Map;
