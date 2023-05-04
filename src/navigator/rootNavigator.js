@@ -8,6 +8,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import LandingScreen from '../components/landingScreen';
 import Login from '../screens/login';
 import Splash from '../screens/splash';
+import Map from '../screens/maps';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const LoginStack = () => {
@@ -28,6 +29,14 @@ const LoginStack = () => {
         }}
         name="LandingScreen"
         component={LandingScreen}
+      />
+      <Stack.Screen
+        options={{
+          header: () => null,
+          cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
+        }}
+        name="Map"
+        component={Map}
       />
       <Stack.Screen
         options={{

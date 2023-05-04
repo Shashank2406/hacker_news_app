@@ -6,7 +6,10 @@ install! 'cocoapods', :deterministic_uuids => false
 
 target 'maruti' do
   config = use_native_modules!
+  
 
+rn_maps_path = '../node_modules/react-native-maps'
+pod 'react-native-google-maps', :path => rn_maps_path
   # Flags change depending on the env values.
   flags = get_default_flags()
 
@@ -30,8 +33,18 @@ target 'maruti' do
   # you should disable the next line.
   use_flipper!()
 
+  # post_install do |installer|
+  #   react_native_post_install(installer)
+  #   __apply_Xcode_12_5_M1_post_install_workaround(installer)
+  # end
   post_install do |installer|
     react_native_post_install(installer)
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
+    
+     # Add these three lines down below -----------------------------------------------
+     installer.pods_project.build_configurations.each do |config|
+       config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+     end
+     # --------------------------------------------------------------------------------
   end
 end

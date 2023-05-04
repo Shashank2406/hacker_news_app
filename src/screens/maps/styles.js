@@ -1,80 +1,14 @@
-import {StyleSheet} from 'react-native';
-
+import {StyleSheet, Dimensions} from 'react-native';
+const Screen = Dimensions.get('window');
 export default StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  inputView: {
-    // backgroundColor: '#003f5c',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: 'grey',
-    width: '80%',
-    height: 50,
-    marginBottom: 20,
-    shadowOffset: {width: -2, height: 4},
-    shadowColor: '#171717',
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    // alignItems: 'center',
-  },
-  TextInput: {
-    height: 50,
+  map: {
     flex: 1,
-    color: 'grey',
-    padding: 10,
-  },
-  loginBtn: {
-    width: '80%',
-    borderRadius: 5,
-    height: 50,
-    alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 15,
-    backgroundColor: '#000',
-    shadowOffset: {width: -2, height: 4},
-    shadowColor: '#171717',
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-  },
-  forgot_button: {
-    height: 30,
-    marginBottom: 30,
-    shadowOffset: {width: -2, height: 4},
-    shadowColor: '#171717',
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-  },
-  noAccount: {
-    height: 30,
-    marginTop: 150,
-    shadowOffset: {width: -2, height: 4},
-    shadowColor: '#171717',
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    color: 'grey',
-  },
-  loginText: {
-    color: '#fff',
-  },
-  loginBtn2: {
-    width: '80%',
-    borderRadius: 5,
-    height: 50,
     alignItems: 'center',
-    justifyContent: 'center',
-    // marginTop: 30,
-    backgroundColor: '#fff',
-    shadowOffset: {width: -2, height: 4},
-    shadowColor: '#171717',
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    borderWidth: 1,
-    borderColor: 'grey',
-  },
-  loginText2: {
-    color: '#000',
   },
 });

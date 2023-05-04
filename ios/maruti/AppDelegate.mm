@@ -3,7 +3,7 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-
+#import <GoogleMaps/GoogleMaps.h>
 #import <React/RCTAppSetupUtils.h>
 
 #if RCT_NEW_ARCH_ENABLED
@@ -13,6 +13,7 @@
 #import <React/RCTSurfacePresenter.h>
 #import <React/RCTSurfacePresenterBridgeAdapter.h>
 #import <ReactCommon/RCTTurboModuleManager.h>
+
 
 #import <react/config/ReactNativeConfig.h>
 
@@ -29,7 +30,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [GMSServices provideAPIKey:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"MAPS_API_KEY"]];
   RCTAppSetupPrepareApp(application);
+ 
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
 
@@ -44,7 +47,7 @@
   UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"maruti", nil);
 
   if (@available(iOS 13.0, *)) {
-    rootView.backgroundColor = [UIColor systemBackgroundColor];
+    rootView.backgroundColor = [UIColor whiteColor];
   } else {
     rootView.backgroundColor = [UIColor whiteColor];
   }

@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   View,
   SafeAreaView,
@@ -18,11 +18,12 @@ class Login extends Component {
 
   render() {
     return (
-      <SafeAreaView style={{
-        flex: 1,
-        backgroundColor: '#ffff',
-        // justifyContent: 'center',
-      }}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: '#ffff',
+          // justifyContent: 'center',
+        }}>
         <View
           style={{
             // justifyContent: 'center',
@@ -41,7 +42,7 @@ class Login extends Component {
               style={styles.TextInput}
               placeholder="Phone number / Email Id"
               placeholderTextColor="grey"
-            // onChangeText={email => setEmail(email)}
+              // onChangeText={email => setEmail(email)}
             />
           </View>
           <View style={styles.inputView}>
@@ -50,13 +51,17 @@ class Login extends Component {
               placeholder="Password"
               placeholderTextColor="grey"
               secureTextEntry={true}
-            // onChangeText={password => setPassword(password)}
+              // onChangeText={password => setPassword(password)}
             />
           </View>
           <TouchableOpacity>
             <Text style={styles.forgot_button}>Forgot Password?</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.loginBtn}>
+          <TouchableOpacity
+            style={styles.loginBtn}
+            onPress={() => {
+              this.props.navigation.replace('Map');
+            }}>
             <Text style={styles.loginText}>Sign In</Text>
           </TouchableOpacity>
           <Text style={styles.noAccount}>Don't have an account?</Text>
