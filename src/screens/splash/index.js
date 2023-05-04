@@ -25,7 +25,7 @@ class Splash extends Component {
         }}>
         <Image
           style={{
-            height: 60,
+            height: 30,
             width: 300,
           }}
           source={require('../../assets/logo.png')}

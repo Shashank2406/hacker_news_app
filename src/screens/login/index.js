@@ -31,7 +31,7 @@ class Login extends Component {
           }}>
           <Image
             style={{
-              height: 60,
+              height: 30,
               width: 300,
               marginVertical: 100,
             }}
