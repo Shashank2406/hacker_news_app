@@ -85,17 +85,17 @@ class Map extends React.Component {
     this.setState({visible: false});
   };
 
-  edgePadding = 70;
-  traceRoute = () => {
-    const {sourcelatitude, sourcelongitude, destination} = this.state;
-    if (sourcelatitude && sourcelongitude && destination) {
-      this.setState({showRoute: true});
-      this.mapRef.current.firToCoordinate(
-        [{latitude: sourcelatitude, longitude: sourcelongitude}, destination],
-        this.edgePadding,
-      );
-    }
-  };
+  // edgePadding = 70;
+  // traceRoute = () => {
+  //   const {sourcelatitude, sourcelongitude, destination} = this.state;
+  //   if (sourcelatitude && sourcelongitude && destination) {
+  //     this.setState({showRoute: true});
+  //     this.mapRef.current.firToCoordinate(
+  //       [{latitude: sourcelatitude, longitude: sourcelongitude}, destination],
+  //       this.edgePadding,
+  //     );
+  //   }
+  // };
 
   render() {
     const {
@@ -179,7 +179,7 @@ class Map extends React.Component {
             // dispatch(setDestination(null));
             // dispatch(setPlacesInfo(null));
           }}
-          currentLocation={true}
+          // currentLocation={true}
           minLength={2}
           enablePoweredByContainer={false}
           placeholder="Search here"

@@ -113,16 +113,9 @@ const BottomTab = () => {
   return (
     <Tab.Navigator
       initialRouteName={'ChargingPoints'}
-      tabBarOptions={{showLabel: false}}
       screenOptions={({route}) => ({
-        tabBarStyle: [
-          {
-            display: 'flex',
-          },
-          null,
-        ],
         tabBarIcon: ({focused}) => <TabIcon {...{route, focused}} />,
-        tabBarOptions: {showLabel: false},
+        tabBarShowLabel: false,
       })}>
       <Tab.Screen name="ChargingPoints" component={Map} />
       <Tab.Screen name="Cab" component={Map} />
