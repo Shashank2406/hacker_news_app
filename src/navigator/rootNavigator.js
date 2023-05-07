@@ -1,4 +1,5 @@
 import React from 'react';
+import {Image, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {
   createStackNavigator,
@@ -36,7 +37,7 @@ const LoginStack = () => {
           cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
         }}
         name="Map"
-        component={Map}
+        component={BottomTab}
       />
       <Stack.Screen
         options={{
@@ -50,13 +51,83 @@ const LoginStack = () => {
   );
 };
 
+const TabIcon = ({route, focused}) => {
+  const get_tabIcon = tab => {
+    switch (tab) {
+      case 'ChargingPoints':
+        return focused ? (
+          <Image
+            style={style.imageStyle}
+            source={require('../assets/lightningBolt.png')}
+          />
+        ) : (
+          <Image
+            style={style.imageStyle}
+            source={require('../assets/lightningBoltBlack.png')}
+          />
+        );
+      case 'Cab':
+        return focused ? (
+          <Image
+            style={style.imageStyle}
+            source={require('../assets/taxi.png')}
+          />
+        ) : (
+          <Image
+            style={style.imageStyle}
+            source={require('../assets/taxiBlack.png')}
+          />
+        );
+      case 'Setting':
+        return focused ? (
+          <Image
+            style={style.imageStyle}
+            source={require('../assets/settings.png')}
+          />
+        ) : (
+          <Image
+            style={style.imageStyle}
+            source={require('../assets/settingsBlack.png')}
+          />
+        );
+      case 'share':
+        return focused ? (
+          <Image
+            style={style.imageStyle}
+            source={require('../assets/share.png')}
+          />
+        ) : (
+          <Image
+            style={style.imageStyle}
+            source={require('../assets/shareBlack.png')}
+          />
+        );
+      default:
+        return <></>;
+    }
+  };
+  return get_tabIcon(route.name);
+};
+
 const BottomTab = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen
-        name="Home"
-        // component={HomeStack}
-      />
+    <Tab.Navigator
+      initialRouteName={'ChargingPoints'}
+      tabBarOptions={{showLabel: false}}
+      screenOptions={({route}) => ({
+        tabBarStyle: [
+          {
+            display: 'flex',
+          },
+          null,
+        ],
+        tabBarIcon: ({focused}) => <TabIcon {...{route, focused}} />,
+        tabBarOptions: {showLabel: false},
+      })}>
+      <Tab.Screen name="ChargingPoints" component={Map} />
+      <Tab.Screen name="Cab" component={Map} />
+      <Tab.Screen name="share" component={Map} />
+      <Tab.Screen name="Setting" component={Map} />
     </Tab.Navigator>
   );
 };
@@ -70,3 +141,10 @@ const MainNavigator = props => {
 };
 
 export default MainNavigator;
+
+const style = StyleSheet.create({
+  imageStyle: {
+    height: 20,
+    width: 20,
+  },
+});
