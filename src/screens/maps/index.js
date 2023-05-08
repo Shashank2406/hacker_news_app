@@ -54,12 +54,36 @@ class Map extends React.Component {
             longitude: LONGITUDE - SPACE,
           },
         },
+        {
+          coordinate: {
+            latitude: LATITUDE + 0.02,
+            longitude: LONGITUDE - 0.02,
+          },
+        },
+        {
+          coordinate: {
+            latitude: LATITUDE + 0.03,
+            longitude: LONGITUDE - 0.02,
+          },
+        },
         // {
         //   coordinate: {
         //     latitude: LATITUDE,
         //     longitude: LONGITUDE,
         //   },
         // },
+        {
+          coordinate: {
+            latitude: LATITUDE + 0.01,
+            longitude: LONGITUDE - 0.02,
+          },
+        },
+        {
+          coordinate: {
+            latitude: LATITUDE - SPACE / 2,
+            longitude: LONGITUDE,
+          },
+        },
         {
           coordinate: {
             latitude: LATITUDE,
@@ -114,6 +138,7 @@ class Map extends React.Component {
           showsUserLocation={true}
           style={styles.map}
           initialRegion={region}
+          ref={c => (this.mapView = c)}
           zoomTapEnabled={false}>
           {this.state.source ? (
             <Marker coordinate={this.state.source}>
@@ -147,8 +172,21 @@ class Map extends React.Component {
               origin={source}
               destination={destination}
               apikey={'AIzaSyCwcqvOdEQ7_n1goVnJhGLGndY44dFaAuM'}
-              strokeWidth={4}
-              strokeColor="hotpink"
+              strokeWidth={2}
+              strokeColor="#2A2F90"
+              onReady={result => {
+                console.log(`Distance: ${result.distance} km`);
+                console.log(`Duration: ${result.duration} min.`);
+
+                this.mapView.fitToCoordinates(result.coordinates, {
+                  edgePadding: {
+                    right: width / 20,
+                    bottom: height / 20,
+                    left: width / 20,
+                    top: height / 20,
+                  },
+                });
+              }}
             />
           )}
         </MapView>
@@ -169,6 +207,7 @@ class Map extends React.Component {
             },
           }}
           onPress={(data, details = null) => {
+            console.log('data',data,details)
             this.setState({
               source: {
                 latitude: details.geometry.location.lat,

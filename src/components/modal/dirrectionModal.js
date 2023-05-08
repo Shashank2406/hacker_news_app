@@ -12,7 +12,7 @@ import {
 const DirrectionModal = ({visible, outerModalClick, getDirections}) => {
   return (
     <Modal
-      animationType="slide"
+      animationType="fade"
       transparent={true}
       visible={visible}
       onRequestClose={{}}>
@@ -28,14 +28,14 @@ const DirrectionModal = ({visible, outerModalClick, getDirections}) => {
                 <Text style={{fontSize: 16, fontWeight: '600'}}>
                   Charger Point Station
                 </Text>
-                <Text style={{fontSize: 13}}>4th Cross, 56034</Text>
+                <Text style={{fontSize: 13}}>Metro Cross Road, 110003</Text>
                 <Text style={{fontSize: 13, fontWeight: '500'}}>
                   4 ports available
                 </Text>
               </View>
             </View>
             {/* <View style={styles.centerBorder} /> */}
-            <View style={{alignItems: 'center'}}>
+            <View style={{alignItems: 'center', marginTop: 20}}>
               <TouchableOpacity style={styles.button} onPress={{}}>
                 <Image
                   style={styles.buttonImg}
@@ -46,7 +46,7 @@ const DirrectionModal = ({visible, outerModalClick, getDirections}) => {
                 </Text>
               </TouchableOpacity>
             </View>
-            <View style={{alignItems: 'center'}}>
+            <View style={{alignItems: 'center',  marginBottom: 20}}>
               <TouchableOpacity
                 onPress={() => getDirections()}
                 style={styles.button}>
@@ -55,7 +55,7 @@ const DirrectionModal = ({visible, outerModalClick, getDirections}) => {
                   source={require('../../assets/direction.png')}
                 />
                 <Text style={{color: '#fff', paddingLeft: 5}}>
-                  SHOW DIRRECTIONS
+                  SHOW DIRECTIONS
                 </Text>
               </TouchableOpacity>
             </View>
@@ -65,7 +65,7 @@ const DirrectionModal = ({visible, outerModalClick, getDirections}) => {
                 <Text style={styles.subTitle}>{'PORT TYPE'}</Text>
               </View>
               <View>
-                <Text style={styles.textHeading}>{'$.4 per kwh'}</Text>
+                <Text style={styles.textHeading}>{'Rs 4 per kwh'}</Text>
                 <Text style={styles.subTitle}>{'COST'}</Text>
               </View>
               <View>

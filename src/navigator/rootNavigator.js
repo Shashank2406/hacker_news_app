@@ -116,6 +116,7 @@ const BottomTab = () => {
       screenOptions={({route}) => ({
         tabBarIcon: ({focused}) => <TabIcon {...{route, focused}} />,
         tabBarShowLabel: false,
+        headerShown: false,
       })}>
       <Tab.Screen name="ChargingPoints" component={Map} />
       <Tab.Screen name="Cab" component={Map} />
@@ -137,7 +138,7 @@ export default MainNavigator;
 
 const style = StyleSheet.create({
   imageStyle: {
-    height: 20,
-    width: 20,
+    height: 25,
+    width: 25,
   },
 });
