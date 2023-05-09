@@ -59,12 +59,6 @@ class Map extends React.Component {
             longitude: LONGITUDE - 0.02,
           },
         },
-        // {
-        //   coordinate: {
-        //     latitude: LATITUDE,
-        //     longitude: LONGITUDE,
-        //   },
-        // },
         {
           coordinate: {
             latitude: LATITUDE + 0.01,
@@ -107,7 +101,6 @@ class Map extends React.Component {
     return (
       <View style={styles.container}>
         <MapView
-          ref={c => (this.mapView = c)}
           provider={PROVIDER_GOOGLE} // remove if not using Google Maps
           showsUserLocation={true}
           style={styles.map}
