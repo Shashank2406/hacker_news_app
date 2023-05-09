@@ -11,22 +11,15 @@ const LONGITUDE = 77.216721;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 const SPACE = 0.01;
-const source = {
-  latitude: LATITUDE,
-  longitude: LONGITUDE - SPACE / 3,
-};
 
 class Map extends React.Component {
   constructor(props) {
     super(props);
-    this.mapRef = React.createRef();
+    this.mapView = null;
     this.state = {
-      reRender: false,
       showRoute: false,
       visible: false,
       cnt: 0,
-      // sourcelatitude: LATITUDE,
-      // sourcelongitude: LONGITUDE - SPACE / 3,
       source: {
         latitude: LATITUDE,
         longitude: LONGITUDE - SPACE / 3,
@@ -95,13 +88,13 @@ class Map extends React.Component {
   }
 
   markerClicked = latLong => {
-    // console.log("latttt=>", latLong)
     this.setState({destination: latLong});
     this.setState({visible: true});
   };
 
   outerModalClick = () => {
     this.setState({visible: false});
+    this.setState({showRoute: false});
   };
 
   getDirections = () => {
@@ -109,31 +102,12 @@ class Map extends React.Component {
     this.setState({visible: false});
   };
 
-  // edgePadding = 70;
-  // traceRoute = () => {
-  //   const {sourcelatitude, sourcelongitude, destination} = this.state;
-  //   if (sourcelatitude && sourcelongitude && destination) {
-  //     this.setState({showRoute: true});
-  //     this.mapRef.current.firToCoordinate(
-  //       [{latitude: sourcelatitude, longitude: sourcelongitude}, destination],
-  //       this.edgePadding,
-  //     );
-  //   }
-  // };
-
   render() {
-    const {
-      region,
-      markers,
-      visible,
-      sourcelatitude,
-      sourcelongitude,
-      destination,
-      showRoute,
-    } = this.state;
+    const {region, markers, visible, destination, showRoute} = this.state;
     return (
       <View style={styles.container}>
         <MapView
+          ref={c => (this.mapView = c)}
           provider={PROVIDER_GOOGLE} // remove if not using Google Maps
           showsUserLocation={true}
           style={styles.map}
@@ -169,7 +143,7 @@ class Map extends React.Component {
           })}
           {showRoute && (
             <MapViewDirections
-              origin={source}
+              origin={this.state.source}
               destination={destination}
               apikey={'AIzaSyCwcqvOdEQ7_n1goVnJhGLGndY44dFaAuM'}
               strokeWidth={2}
@@ -207,13 +181,13 @@ class Map extends React.Component {
             },
           }}
           onPress={(data, details = null) => {
-            console.log('data',data,details)
             this.setState({
               source: {
                 latitude: details.geometry.location.lat,
                 longitude: details.geometry.location.lng,
               },
             });
+
             // dispatch(setOrigin(details.geometry.location));
             // dispatch(setDestination(null));
             // dispatch(setPlacesInfo(null));
