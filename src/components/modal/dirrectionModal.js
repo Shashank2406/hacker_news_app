@@ -9,7 +9,12 @@ import {
   Image,
 } from 'react-native';
 
-const DirrectionModal = ({visible, outerModalClick, getDirections}) => {
+const DirrectionModal = ({
+  visible,
+  outerModalClick,
+  getDirections,
+  navHandle,
+}) => {
   return (
     <Modal
       animationType="fade"
@@ -25,18 +30,22 @@ const DirrectionModal = ({visible, outerModalClick, getDirections}) => {
                 source={require('../../assets/cabImage.png')}
               />
               <View style={{paddingLeft: 20, justifyContent: 'space-around'}}>
-                <Text style={{fontSize: 16, fontWeight: '600'}}>
+                <Text style={{fontSize: 16, fontWeight: '600', color: '#000'}}>
                   Charger Point Station
                 </Text>
-                <Text style={{fontSize: 13}}>Metro Cross Road, 110003</Text>
-                <Text style={{fontSize: 13, fontWeight: '500'}}>
+                <Text style={{fontSize: 13, color: '#000'}}>
+                  Metro Cross Road, 110003
+                </Text>
+                <Text style={{fontSize: 13, fontWeight: '500', color: '#000'}}>
                   4 ports available
                 </Text>
               </View>
             </View>
             {/* <View style={styles.centerBorder} /> */}
             <View style={{alignItems: 'center', marginTop: 20}}>
-              <TouchableOpacity style={styles.button} onPress={{}}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => navHandle()}>
                 <Image
                   style={styles.buttonImg}
                   source={require('../../assets/taxiBlack.png')}
@@ -46,7 +55,7 @@ const DirrectionModal = ({visible, outerModalClick, getDirections}) => {
                 </Text>
               </TouchableOpacity>
             </View>
-            <View style={{alignItems: 'center',  marginBottom: 20}}>
+            <View style={{alignItems: 'center', marginBottom: 20}}>
               <TouchableOpacity
                 onPress={() => getDirections()}
                 style={styles.button}>
@@ -169,8 +178,8 @@ const styles = StyleSheet.create({
     height: 20,
     width: 20,
   },
-  textHeading: {fontSize: 15, fontWeight: '500'},
-  subTitle: {fontSize: 11, paddingVertical: 5},
+  textHeading: {fontSize: 15, fontWeight: '500', color: '#000'},
+  subTitle: {fontSize: 11, paddingVertical: 5, color: '#000'},
   levelContainer: {
     flexDirection: 'row',
     paddingHorizontal: 20,

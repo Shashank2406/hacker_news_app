@@ -96,6 +96,11 @@ class Map extends React.Component {
     this.setState({visible: false});
   };
 
+  navHandle = () => {
+    this.setState({visible: false});
+    this.props.navigation.navigate('BookCharger');
+  };
+
   render() {
     const {region, markers, visible, destination, showRoute} = this.state;
     return (
@@ -189,6 +194,7 @@ class Map extends React.Component {
           minLength={2}
           enablePoweredByContainer={false}
           placeholder="Search here"
+          placeholderTextColor="#000"
           nearbyPlacesAPI="GooglePlacesSearch"
           debounce={400}
           fetchDetails={true}
@@ -202,6 +208,7 @@ class Map extends React.Component {
             visible,
             outerModalClick: this.outerModalClick,
             getDirections: this.getDirections,
+            navHandle: this.navHandle,
           }}
         />
       </View>

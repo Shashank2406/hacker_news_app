@@ -10,6 +10,7 @@ import LandingScreen from '../components/landingScreen';
 import Login from '../screens/login';
 import Splash from '../screens/splash';
 import Map from '../screens/maps';
+import BookCharger from '../screens/chagerBook';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const LoginStack = () => {
@@ -46,6 +47,14 @@ const LoginStack = () => {
         }}
         name="Login"
         component={Login}
+      />
+      <Stack.Screen
+        options={{
+          header: () => null,
+          cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
+        }}
+        name="BookCharger"
+        component={BookCharger}
       />
     </Stack.Navigator>
   );
