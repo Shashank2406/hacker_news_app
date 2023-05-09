@@ -10,14 +10,11 @@ const BookCharger = ({navigation}) => {
   const currentTime = new Date().getTime();
   const [date, setDate] = useState(currentDate);
   const [departDate, setDepartDate] = useState(currentDate);
-  const [mode, setMode] = useState('date');
-  const [show, setShow] = useState(true);
+
   const onChangeArrive = (event, selectedDate) => {
-    setShow(false);
     setDate(selectedDate);
   };
   const onChangeDepart = (event, selectedDate) => {
-    setShow(false);
     setDepartDate(selectedDate);
   };
 
